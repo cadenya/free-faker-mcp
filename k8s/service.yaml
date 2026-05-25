@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: free-faker-mcp
+  namespace: free
+spec:
+  selector:
+    app: free-faker-mcp
+  ports:
+    - port: 80
+      targetPort: 8080

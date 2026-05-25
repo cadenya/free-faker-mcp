@@ -43,5 +43,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/cadenya/faker-mcp:latest
-            ghcr.io/cadenya/faker-mcp:${{ github.sha }}
+            ghcr.io/cadenya/free-faker-mcp:latest
+            ghcr.io/cadenya/free-faker-mcp:${{ github.sha }}

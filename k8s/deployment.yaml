@@ -1,24 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: faker-mcp
-  labels:
-    app.kubernetes.io/name: faker-mcp
-    app.kubernetes.io/component: mcp-server
+  name: free-faker-mcp
+  namespace: free
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: faker-mcp
+      app: free-faker-mcp
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: faker-mcp
-        app.kubernetes.io/component: mcp-server
+        app: free-faker-mcp
     spec:
       containers:
         - name: faker
-          image: ghcr.io/cadenya/faker-mcp:latest
+          image: ghcr.io/cadenya/free-faker-mcp:latest
           ports:
             - name: grpc
               containerPort: 50051
@@ -42,7 +39,7 @@ spec:
             periodSeconds: 15
 
         - name: gateway
-          image: ghcr.io/cadenya/mcp-grpc-gateway:latest
+          image: cadenyaagents/mcp-grpc-gateway:latest
           args:
             - --addr
             - 0.0.0.0:8080
@@ -52,7 +49,7 @@ spec:
             - examples.faker.v1.FakerService
             - --require-tool-annotations
             - --path
-            - /faker-mcp
+            - /
           ports:
             - name: http
               containerPort: 8080
