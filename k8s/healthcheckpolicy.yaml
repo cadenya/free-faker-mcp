@@ -1,0 +1,17 @@
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: free-faker-mcp
+  namespace: free
+spec:
+  default:
+    config:
+      type: GRPC
+      grpcHealthCheck:
+        port: 50051
+    logConfig:
+      enabled: true
+  targetRef:
+    group: ""
+    kind: Service
+    name: free-faker-mcp
