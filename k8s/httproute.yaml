@@ -1,0 +1,25 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: free-faker-mcp
+  namespace: free
+spec:
+  parentRefs:
+    - name: free-gateway
+      namespace: free
+  hostnames:
+    - free.cadenya.com
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /faker-mcp
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /faker-mcp
+      backendRefs:
+        - name: free-faker-mcp
+          port: 80
