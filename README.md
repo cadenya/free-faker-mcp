@@ -4,7 +4,15 @@ A free, open-source MCP server that generates fake data using [faker-go](https:/
 
 **Hosted endpoint:** `https://free.cadenya.com/faker-mcp`
 
+## Why?
+
+This is more of a proof of concept for [mcp-grpc-gateway](https://github.com/cadenya/mcp-grpc-gateway) than it is a valuable MCP server. However there are times when using fake data in an LLMs conversation can be useful to generate company names, addresses, etc. Can LLMs do that? Sure. But that's not the point.
+
+It is hosted for free by [Cadenya](https://cadenya.com), an Agent Runtime.
+
 ## Tools
+
+The footprint of tools is very low (not every faker category is loaded into context, that would be a waste of input tokens).
 
 | Tool | Description |
 |------|-------------|
@@ -15,7 +23,19 @@ The service builds its catalog from the exported faker-go API at startup. It inc
 
 ## Usage
 
-### Claude Desktop / Claude Code
+### Claude Code
+
+```bash
+claude mcp add faker --transport http https://free.cadenya.com/faker-mcp
+```
+
+### Codex
+
+```bash
+codex mcp add faker --url https://free.cadenya.com/faker-mcp
+```
+
+### Claude Desktop
 
 Add to your MCP configuration:
 
