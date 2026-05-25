@@ -51,3 +51,10 @@ spec:
             limits:
               cpu: 100m
               memory: 32Mi
+          readinessProbe:
+            httpGet:
+              path: /faker-mcp
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            timeoutSeconds: 3
