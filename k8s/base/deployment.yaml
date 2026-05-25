@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faker-mcp
+  labels:
+    app.kubernetes.io/name: faker-mcp
+    app.kubernetes.io/component: mcp-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: faker-mcp
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: faker-mcp
+        app.kubernetes.io/component: mcp-server
+    spec:
+      containers:
+        - name: faker
+          image: ghcr.io/cadenya/faker-mcp:latest
+          ports:
+            - name: grpc
+              containerPort: 50051
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 64Mi
+          readinessProbe:
+            grpc:
+              port: 50051
+            initialDelaySeconds: 2
+            periodSeconds: 10
+          livenessProbe:
+            grpc:
+              port: 50051
+            initialDelaySeconds: 5
+            periodSeconds: 15
+
+        - name: gateway
+          image: ghcr.io/cadenya/mcp-grpc-gateway:latest
+          args:
+            - --addr
+            - 0.0.0.0:8080
+            - --grpc-host
+            - 127.0.0.1:50051
+            - --service
+            - examples.faker.v1.FakerService
+            - --require-tool-annotations
+            - --path
+            - /faker-mcp
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 25m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 32Mi
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 2
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 15

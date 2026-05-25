@@ -1,0 +1,16 @@
+# Binaries
+faker-mcp
+/bin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Go
+vendor/

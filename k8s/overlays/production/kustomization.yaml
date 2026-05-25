@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: faker-mcp
+
+resources:
+  - ../../base
+  - ingress.yaml
+
+patches:
+  - target:
+      kind: Deployment
+      name: faker-mcp
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 2
+
+images:
+  - name: ghcr.io/cadenya/faker-mcp
+    newTag: latest
+  - name: ghcr.io/cadenya/mcp-grpc-gateway
+    newTag: latest
