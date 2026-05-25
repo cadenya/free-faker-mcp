@@ -16,6 +16,8 @@ import (
 	fakerpb "go.cadenya.com/faker-mcp/fakerpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/health"
+	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/structpb"
@@ -33,6 +35,9 @@ func main() {
 
 	server := grpc.NewServer()
 	fakerpb.RegisterFakerServiceServer(server, newFakerServer())
+	healthServer := health.NewServer()
+	healthServer.SetServingStatus("", healthpb.HealthCheckResponse_SERVING)
+	healthpb.RegisterHealthServer(server, healthServer)
 	reflection.Register(server)
 
 	log.Printf("faker gRPC server listening on %s", listener.Addr())
