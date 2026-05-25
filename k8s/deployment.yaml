@@ -27,16 +27,6 @@ spec:
             limits:
               cpu: 200m
               memory: 64Mi
-          readinessProbe:
-            grpc:
-              port: 50051
-            initialDelaySeconds: 2
-            periodSeconds: 10
-          livenessProbe:
-            grpc:
-              port: 50051
-            initialDelaySeconds: 5
-            periodSeconds: 15
 
         - name: gateway
           image: cadenyaagents/mcp-grpc-gateway:latest
