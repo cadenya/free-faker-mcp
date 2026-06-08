@@ -39,6 +39,12 @@ message GenerateFakeResponse {
   string value = 2;
 }
 
+message GenerateCurseWordRequest {}
+
+message GenerateCurseWordResponse {
+  string value = 1;
+}
+
 service FakerService {
   rpc GetFakerOptions(GetFakerOptionsRequest) returns (GetFakerOptionsResponse) {
     option (grpcmcpgateway.v1.tool) = {
@@ -51,6 +57,14 @@ service FakerService {
     option (grpcmcpgateway.v1.tool) = {
       name: "GenerateFake"
       description: "Generates one fake data value by faker option name."
+    };
+  }
+
+  rpc GenerateCurseWord(GenerateCurseWordRequest) returns (GenerateCurseWordResponse) {
+    option (grpcmcpgateway.v1.tool) = {
+      name: "GenerateCurseWord"
+      description: "Generates one PG-13 curse word from a small built-in list."
+      destructive_hint: true
     };
   }
 }

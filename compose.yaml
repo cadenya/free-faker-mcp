@@ -16,7 +16,7 @@ services:
       - --grpc-host
       - faker:50051
       - --service
-      - examples.faker.v1.FakerService
+      - faker.v1.FakerService
       - --require-tool-annotations
       - --path
       - /faker-mcp

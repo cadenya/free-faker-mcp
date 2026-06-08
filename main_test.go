@@ -7,9 +7,12 @@ import (
 
 	"github.com/stretchr/testify/require"
 	fakerpb "go.cadenya.com/faker-mcp/fakerpb"
+	grpcmcpgatewayv1 "go.cadenya.com/mcp-grpc-gateway/gen/grpcmcpgateway/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/reflection"
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/descriptorpb"
 )
 
 func TestFakerServiceListsFiltersAndGeneratesValues(t *testing.T) {
@@ -69,6 +72,39 @@ func TestFakerServiceGRPCRoundTrip(t *testing.T) {
 	resp, err := client.GenerateFake(context.Background(), &fakerpb.GenerateFakeRequest{Name: "internet.email"})
 	require.NoError(t, err)
 	require.Contains(t, resp.GetValue(), "@")
+}
+
+func TestFakerServiceGeneratesPG13CurseWords(t *testing.T) {
+	server := newFakerServer()
+	allowed := map[string]struct{}{
+		"crap":   {},
+		"damn":   {},
+		"heck":   {},
+		"jerk":   {},
+		"moron":  {},
+		"stupid": {},
+	}
+
+	for range 20 {
+		resp, err := server.GenerateCurseWord(context.Background(), &fakerpb.GenerateCurseWordRequest{})
+		require.NoError(t, err)
+		require.Contains(t, allowed, resp.GetValue())
+	}
+}
+
+func TestGenerateCurseWordToolAnnotationHasDestructiveHint(t *testing.T) {
+	method := fakerpb.File_faker_v1_faker_proto.Services().
+		ByName("FakerService").
+		Methods().
+		ByName("GenerateCurseWord")
+	require.NotNil(t, method)
+
+	options := method.Options().(*descriptorpb.MethodOptions)
+	require.True(t, proto.HasExtension(options, grpcmcpgatewayv1.E_Tool))
+	tool := proto.GetExtension(options, grpcmcpgatewayv1.E_Tool).(*grpcmcpgatewayv1.Tool)
+
+	require.Equal(t, "GenerateCurseWord", tool.GetName())
+	require.True(t, tool.GetDestructiveHint())
 }
 
 func startTestFakerGRPC(t *testing.T) (string, func()) {
