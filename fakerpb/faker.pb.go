@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: examples/faker/v1/faker.proto
+// source: faker/v1/faker.proto
 
 package fakerpb
 
@@ -32,7 +32,7 @@ type GetFakerOptionsRequest struct {
 
 func (x *GetFakerOptionsRequest) Reset() {
 	*x = GetFakerOptionsRequest{}
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[0]
+	mi := &file_faker_v1_faker_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *GetFakerOptionsRequest) String() string {
 func (*GetFakerOptionsRequest) ProtoMessage() {}
 
 func (x *GetFakerOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[0]
+	mi := &file_faker_v1_faker_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *GetFakerOptionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFakerOptionsRequest.ProtoReflect.Descriptor instead.
 func (*GetFakerOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_examples_faker_v1_faker_proto_rawDescGZIP(), []int{0}
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetFakerOptionsRequest) GetFilter() string {
@@ -79,7 +79,7 @@ type FakerOption struct {
 
 func (x *FakerOption) Reset() {
 	*x = FakerOption{}
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[1]
+	mi := &file_faker_v1_faker_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -91,7 +91,7 @@ func (x *FakerOption) String() string {
 func (*FakerOption) ProtoMessage() {}
 
 func (x *FakerOption) ProtoReflect() protoreflect.Message {
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[1]
+	mi := &file_faker_v1_faker_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -104,7 +104,7 @@ func (x *FakerOption) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FakerOption.ProtoReflect.Descriptor instead.
 func (*FakerOption) Descriptor() ([]byte, []int) {
-	return file_examples_faker_v1_faker_proto_rawDescGZIP(), []int{1}
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *FakerOption) GetName() string {
@@ -147,7 +147,7 @@ type FakerArgument struct {
 
 func (x *FakerArgument) Reset() {
 	*x = FakerArgument{}
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[2]
+	mi := &file_faker_v1_faker_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -159,7 +159,7 @@ func (x *FakerArgument) String() string {
 func (*FakerArgument) ProtoMessage() {}
 
 func (x *FakerArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[2]
+	mi := &file_faker_v1_faker_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -172,7 +172,7 @@ func (x *FakerArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FakerArgument.ProtoReflect.Descriptor instead.
 func (*FakerArgument) Descriptor() ([]byte, []int) {
-	return file_examples_faker_v1_faker_proto_rawDescGZIP(), []int{2}
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *FakerArgument) GetName() string {
@@ -212,7 +212,7 @@ type GetFakerOptionsResponse struct {
 
 func (x *GetFakerOptionsResponse) Reset() {
 	*x = GetFakerOptionsResponse{}
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[3]
+	mi := &file_faker_v1_faker_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -224,7 +224,7 @@ func (x *GetFakerOptionsResponse) String() string {
 func (*GetFakerOptionsResponse) ProtoMessage() {}
 
 func (x *GetFakerOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[3]
+	mi := &file_faker_v1_faker_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -237,7 +237,7 @@ func (x *GetFakerOptionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFakerOptionsResponse.ProtoReflect.Descriptor instead.
 func (*GetFakerOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_examples_faker_v1_faker_proto_rawDescGZIP(), []int{3}
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetFakerOptionsResponse) GetOptions() []*FakerOption {
@@ -257,7 +257,7 @@ type GenerateFakeRequest struct {
 
 func (x *GenerateFakeRequest) Reset() {
 	*x = GenerateFakeRequest{}
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[4]
+	mi := &file_faker_v1_faker_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -269,7 +269,7 @@ func (x *GenerateFakeRequest) String() string {
 func (*GenerateFakeRequest) ProtoMessage() {}
 
 func (x *GenerateFakeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[4]
+	mi := &file_faker_v1_faker_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -282,7 +282,7 @@ func (x *GenerateFakeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateFakeRequest.ProtoReflect.Descriptor instead.
 func (*GenerateFakeRequest) Descriptor() ([]byte, []int) {
-	return file_examples_faker_v1_faker_proto_rawDescGZIP(), []int{4}
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GenerateFakeRequest) GetName() string {
@@ -309,7 +309,7 @@ type GenerateFakeResponse struct {
 
 func (x *GenerateFakeResponse) Reset() {
 	*x = GenerateFakeResponse{}
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[5]
+	mi := &file_faker_v1_faker_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -321,7 +321,7 @@ func (x *GenerateFakeResponse) String() string {
 func (*GenerateFakeResponse) ProtoMessage() {}
 
 func (x *GenerateFakeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_examples_faker_v1_faker_proto_msgTypes[5]
+	mi := &file_faker_v1_faker_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -334,7 +334,7 @@ func (x *GenerateFakeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateFakeResponse.ProtoReflect.Descriptor instead.
 func (*GenerateFakeResponse) Descriptor() ([]byte, []int) {
-	return file_examples_faker_v1_faker_proto_rawDescGZIP(), []int{5}
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GenerateFakeResponse) GetName() string {
@@ -351,96 +351,185 @@ func (x *GenerateFakeResponse) GetValue() string {
 	return ""
 }
 
-var File_examples_faker_v1_faker_proto protoreflect.FileDescriptor
+type GenerateCurseWordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
 
-const file_examples_faker_v1_faker_proto_rawDesc = "" +
+func (x *GenerateCurseWordRequest) Reset() {
+	*x = GenerateCurseWordRequest{}
+	mi := &file_faker_v1_faker_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateCurseWordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateCurseWordRequest) ProtoMessage() {}
+
+func (x *GenerateCurseWordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_faker_v1_faker_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateCurseWordRequest.ProtoReflect.Descriptor instead.
+func (*GenerateCurseWordRequest) Descriptor() ([]byte, []int) {
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{6}
+}
+
+type GenerateCurseWordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateCurseWordResponse) Reset() {
+	*x = GenerateCurseWordResponse{}
+	mi := &file_faker_v1_faker_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateCurseWordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateCurseWordResponse) ProtoMessage() {}
+
+func (x *GenerateCurseWordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_faker_v1_faker_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateCurseWordResponse.ProtoReflect.Descriptor instead.
+func (*GenerateCurseWordResponse) Descriptor() ([]byte, []int) {
+	return file_faker_v1_faker_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GenerateCurseWordResponse) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+var File_faker_v1_faker_proto protoreflect.FileDescriptor
+
+const file_faker_v1_faker_proto_rawDesc = "" +
 	"\n" +
-	"\x1dexamples/faker/v1/faker.proto\x12\x11examples.faker.v1\x1a#grpcmcpgateway/v1/annotations.proto\x1a\x1cgoogle/protobuf/struct.proto\"0\n" +
+	"\x14faker/v1/faker.proto\x12\bfaker.v1\x1a#grpcmcpgateway/v1/annotations.proto\x1a\x1cgoogle/protobuf/struct.proto\"0\n" +
 	"\x16GetFakerOptionsRequest\x12\x16\n" +
-	"\x06filter\x18\x01 \x01(\tR\x06filter\"\x9f\x01\n" +
+	"\x06filter\x18\x01 \x01(\tR\x06filter\"\x96\x01\n" +
 	"\vFakerOption\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1a\n" +
 	"\bcategory\x18\x02 \x01(\tR\bcategory\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12>\n" +
-	"\targuments\x18\x04 \x03(\v2 .examples.faker.v1.FakerArgumentR\targuments\"\x8b\x01\n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x125\n" +
+	"\targuments\x18\x04 \x03(\v2\x17.faker.v1.FakerArgumentR\targuments\"\x8b\x01\n" +
 	"\rFakerArgument\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x120\n" +
-	"\adefault\x18\x04 \x01(\v2\x16.google.protobuf.ValueR\adefault\"S\n" +
-	"\x17GetFakerOptionsResponse\x128\n" +
-	"\aoptions\x18\x01 \x03(\v2\x1e.examples.faker.v1.FakerOptionR\aoptions\"V\n" +
+	"\adefault\x18\x04 \x01(\v2\x16.google.protobuf.ValueR\adefault\"J\n" +
+	"\x17GetFakerOptionsResponse\x12/\n" +
+	"\aoptions\x18\x01 \x03(\v2\x15.faker.v1.FakerOptionR\aoptions\"V\n" +
 	"\x13GenerateFakeRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12+\n" +
 	"\x04args\x18\x02 \x01(\v2\x17.google.protobuf.StructR\x04args\"@\n" +
 	"\x14GenerateFakeResponse\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value2\xa2\x03\n" +
-	"\fFakerService\x12\xe6\x01\n" +
-	"\x0fGetFakerOptions\x12).examples.faker.v1.GetFakerOptionsRequest\x1a*.examples.faker.v1.GetFakerOptionsResponse\"|\xa2\x8d'x\n" +
-	"\x0fGetFakerOptions\x12eLists supported fake data generators. Use filter to narrow options by name, category, or description.\x12\xa8\x01\n" +
-	"\fGenerateFake\x12&.examples.faker.v1.GenerateFakeRequest\x1a'.examples.faker.v1.GenerateFakeResponse\"G\xa2\x8d'C\n" +
-	"\fGenerateFake\x123Generates one fake data value by faker option name.B@Z>go.cadenya.com/mcp-grpc-gateway/examples/faker/fakerpb;fakerpbb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value\"\x1a\n" +
+	"\x18GenerateCurseWordRequest\"1\n" +
+	"\x19GenerateCurseWordResponse\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value2\xb4\x04\n" +
+	"\fFakerService\x12\xd4\x01\n" +
+	"\x0fGetFakerOptions\x12 .faker.v1.GetFakerOptionsRequest\x1a!.faker.v1.GetFakerOptionsResponse\"|\xa2\x8d'x\n" +
+	"\x0fGetFakerOptions\x12eLists supported fake data generators. Use filter to narrow options by name, category, or description.\x12\x96\x01\n" +
+	"\fGenerateFake\x12\x1d.faker.v1.GenerateFakeRequest\x1a\x1e.faker.v1.GenerateFakeResponse\"G\xa2\x8d'C\n" +
+	"\fGenerateFake\x123Generates one fake data value by faker option name.\x12\xb3\x01\n" +
+	"\x11GenerateCurseWord\x12\".faker.v1.GenerateCurseWordRequest\x1a#.faker.v1.GenerateCurseWordResponse\"U\xa2\x8d'Q\n" +
+	"\x11GenerateCurseWord\x12:Generates one PG-13 curse word from a small built-in list.0\x01B*Z(go.cadenya.com/faker-mcp/fakerpb;fakerpbb\x06proto3"
 
 var (
-	file_examples_faker_v1_faker_proto_rawDescOnce sync.Once
-	file_examples_faker_v1_faker_proto_rawDescData []byte
+	file_faker_v1_faker_proto_rawDescOnce sync.Once
+	file_faker_v1_faker_proto_rawDescData []byte
 )
 
-func file_examples_faker_v1_faker_proto_rawDescGZIP() []byte {
-	file_examples_faker_v1_faker_proto_rawDescOnce.Do(func() {
-		file_examples_faker_v1_faker_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_examples_faker_v1_faker_proto_rawDesc), len(file_examples_faker_v1_faker_proto_rawDesc)))
+func file_faker_v1_faker_proto_rawDescGZIP() []byte {
+	file_faker_v1_faker_proto_rawDescOnce.Do(func() {
+		file_faker_v1_faker_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_faker_v1_faker_proto_rawDesc), len(file_faker_v1_faker_proto_rawDesc)))
 	})
-	return file_examples_faker_v1_faker_proto_rawDescData
+	return file_faker_v1_faker_proto_rawDescData
 }
 
-var file_examples_faker_v1_faker_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_examples_faker_v1_faker_proto_goTypes = []any{
-	(*GetFakerOptionsRequest)(nil),  // 0: examples.faker.v1.GetFakerOptionsRequest
-	(*FakerOption)(nil),             // 1: examples.faker.v1.FakerOption
-	(*FakerArgument)(nil),           // 2: examples.faker.v1.FakerArgument
-	(*GetFakerOptionsResponse)(nil), // 3: examples.faker.v1.GetFakerOptionsResponse
-	(*GenerateFakeRequest)(nil),     // 4: examples.faker.v1.GenerateFakeRequest
-	(*GenerateFakeResponse)(nil),    // 5: examples.faker.v1.GenerateFakeResponse
-	(*structpb.Value)(nil),          // 6: google.protobuf.Value
-	(*structpb.Struct)(nil),         // 7: google.protobuf.Struct
+var file_faker_v1_faker_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_faker_v1_faker_proto_goTypes = []any{
+	(*GetFakerOptionsRequest)(nil),    // 0: faker.v1.GetFakerOptionsRequest
+	(*FakerOption)(nil),               // 1: faker.v1.FakerOption
+	(*FakerArgument)(nil),             // 2: faker.v1.FakerArgument
+	(*GetFakerOptionsResponse)(nil),   // 3: faker.v1.GetFakerOptionsResponse
+	(*GenerateFakeRequest)(nil),       // 4: faker.v1.GenerateFakeRequest
+	(*GenerateFakeResponse)(nil),      // 5: faker.v1.GenerateFakeResponse
+	(*GenerateCurseWordRequest)(nil),  // 6: faker.v1.GenerateCurseWordRequest
+	(*GenerateCurseWordResponse)(nil), // 7: faker.v1.GenerateCurseWordResponse
+	(*structpb.Value)(nil),            // 8: google.protobuf.Value
+	(*structpb.Struct)(nil),           // 9: google.protobuf.Struct
 }
-var file_examples_faker_v1_faker_proto_depIdxs = []int32{
-	2, // 0: examples.faker.v1.FakerOption.arguments:type_name -> examples.faker.v1.FakerArgument
-	6, // 1: examples.faker.v1.FakerArgument.default:type_name -> google.protobuf.Value
-	1, // 2: examples.faker.v1.GetFakerOptionsResponse.options:type_name -> examples.faker.v1.FakerOption
-	7, // 3: examples.faker.v1.GenerateFakeRequest.args:type_name -> google.protobuf.Struct
-	0, // 4: examples.faker.v1.FakerService.GetFakerOptions:input_type -> examples.faker.v1.GetFakerOptionsRequest
-	4, // 5: examples.faker.v1.FakerService.GenerateFake:input_type -> examples.faker.v1.GenerateFakeRequest
-	3, // 6: examples.faker.v1.FakerService.GetFakerOptions:output_type -> examples.faker.v1.GetFakerOptionsResponse
-	5, // 7: examples.faker.v1.FakerService.GenerateFake:output_type -> examples.faker.v1.GenerateFakeResponse
-	6, // [6:8] is the sub-list for method output_type
-	4, // [4:6] is the sub-list for method input_type
+var file_faker_v1_faker_proto_depIdxs = []int32{
+	2, // 0: faker.v1.FakerOption.arguments:type_name -> faker.v1.FakerArgument
+	8, // 1: faker.v1.FakerArgument.default:type_name -> google.protobuf.Value
+	1, // 2: faker.v1.GetFakerOptionsResponse.options:type_name -> faker.v1.FakerOption
+	9, // 3: faker.v1.GenerateFakeRequest.args:type_name -> google.protobuf.Struct
+	0, // 4: faker.v1.FakerService.GetFakerOptions:input_type -> faker.v1.GetFakerOptionsRequest
+	4, // 5: faker.v1.FakerService.GenerateFake:input_type -> faker.v1.GenerateFakeRequest
+	6, // 6: faker.v1.FakerService.GenerateCurseWord:input_type -> faker.v1.GenerateCurseWordRequest
+	3, // 7: faker.v1.FakerService.GetFakerOptions:output_type -> faker.v1.GetFakerOptionsResponse
+	5, // 8: faker.v1.FakerService.GenerateFake:output_type -> faker.v1.GenerateFakeResponse
+	7, // 9: faker.v1.FakerService.GenerateCurseWord:output_type -> faker.v1.GenerateCurseWordResponse
+	7, // [7:10] is the sub-list for method output_type
+	4, // [4:7] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
 	4, // [4:4] is the sub-list for extension extendee
 	0, // [0:4] is the sub-list for field type_name
 }
 
-func init() { file_examples_faker_v1_faker_proto_init() }
-func file_examples_faker_v1_faker_proto_init() {
-	if File_examples_faker_v1_faker_proto != nil {
+func init() { file_faker_v1_faker_proto_init() }
+func file_faker_v1_faker_proto_init() {
+	if File_faker_v1_faker_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_examples_faker_v1_faker_proto_rawDesc), len(file_examples_faker_v1_faker_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_faker_v1_faker_proto_rawDesc), len(file_faker_v1_faker_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_examples_faker_v1_faker_proto_goTypes,
-		DependencyIndexes: file_examples_faker_v1_faker_proto_depIdxs,
-		MessageInfos:      file_examples_faker_v1_faker_proto_msgTypes,
+		GoTypes:           file_faker_v1_faker_proto_goTypes,
+		DependencyIndexes: file_faker_v1_faker_proto_depIdxs,
+		MessageInfos:      file_faker_v1_faker_proto_msgTypes,
 	}.Build()
-	File_examples_faker_v1_faker_proto = out.File
-	file_examples_faker_v1_faker_proto_goTypes = nil
-	file_examples_faker_v1_faker_proto_depIdxs = nil
+	File_faker_v1_faker_proto = out.File
+	file_faker_v1_faker_proto_goTypes = nil
+	file_faker_v1_faker_proto_depIdxs = nil
 }

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math/rand/v2"
 	"net"
 	"reflect"
 	"sort"
@@ -26,6 +27,15 @@ import (
 const fakerPackagePath = "github.com/jaswdr/faker/v2"
 
 var durationType = reflect.TypeOf(time.Duration(0))
+
+var pg13CurseWords = []string{
+	"crap",
+	"damn",
+	"heck",
+	"jerk",
+	"moron",
+	"stupid",
+}
 
 func main() {
 	listener, err := net.Listen("tcp", ":50051")
@@ -190,6 +200,10 @@ func (s *fakerServer) GenerateFake(_ context.Context, req *fakerpb.GenerateFakeR
 		return nil, status.Errorf(codes.InvalidArgument, "generate %s: %v", name, err)
 	}
 	return &fakerpb.GenerateFakeResponse{Name: name, Value: value}, nil
+}
+
+func (s *fakerServer) GenerateCurseWord(context.Context, *fakerpb.GenerateCurseWordRequest) (*fakerpb.GenerateCurseWordResponse, error) {
+	return &fakerpb.GenerateCurseWordResponse{Value: pg13CurseWords[rand.IntN(len(pg13CurseWords))]}, nil
 }
 
 func discoverFakes() []fakeOption {

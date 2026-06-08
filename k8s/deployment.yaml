@@ -36,7 +36,7 @@ spec:
             - --grpc-host
             - 127.0.0.1:50051
             - --service
-            - examples.faker.v1.FakerService
+            - faker.v1.FakerService
             - --require-tool-annotations
             - --path
             - /faker-mcp

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.2
 // - protoc             (unknown)
-// source: examples/faker/v1/faker.proto
+// source: faker/v1/faker.proto
 
 package fakerpb
 
@@ -19,8 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FakerService_GetFakerOptions_FullMethodName = "/examples.faker.v1.FakerService/GetFakerOptions"
-	FakerService_GenerateFake_FullMethodName    = "/examples.faker.v1.FakerService/GenerateFake"
+	FakerService_GetFakerOptions_FullMethodName   = "/faker.v1.FakerService/GetFakerOptions"
+	FakerService_GenerateFake_FullMethodName      = "/faker.v1.FakerService/GenerateFake"
+	FakerService_GenerateCurseWord_FullMethodName = "/faker.v1.FakerService/GenerateCurseWord"
 )
 
 // FakerServiceClient is the client API for FakerService service.
@@ -29,6 +30,7 @@ const (
 type FakerServiceClient interface {
 	GetFakerOptions(ctx context.Context, in *GetFakerOptionsRequest, opts ...grpc.CallOption) (*GetFakerOptionsResponse, error)
 	GenerateFake(ctx context.Context, in *GenerateFakeRequest, opts ...grpc.CallOption) (*GenerateFakeResponse, error)
+	GenerateCurseWord(ctx context.Context, in *GenerateCurseWordRequest, opts ...grpc.CallOption) (*GenerateCurseWordResponse, error)
 }
 
 type fakerServiceClient struct {
@@ -59,12 +61,23 @@ func (c *fakerServiceClient) GenerateFake(ctx context.Context, in *GenerateFakeR
 	return out, nil
 }
 
+func (c *fakerServiceClient) GenerateCurseWord(ctx context.Context, in *GenerateCurseWordRequest, opts ...grpc.CallOption) (*GenerateCurseWordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateCurseWordResponse)
+	err := c.cc.Invoke(ctx, FakerService_GenerateCurseWord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FakerServiceServer is the server API for FakerService service.
 // All implementations must embed UnimplementedFakerServiceServer
 // for forward compatibility.
 type FakerServiceServer interface {
 	GetFakerOptions(context.Context, *GetFakerOptionsRequest) (*GetFakerOptionsResponse, error)
 	GenerateFake(context.Context, *GenerateFakeRequest) (*GenerateFakeResponse, error)
+	GenerateCurseWord(context.Context, *GenerateCurseWordRequest) (*GenerateCurseWordResponse, error)
 	mustEmbedUnimplementedFakerServiceServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedFakerServiceServer) GetFakerOptions(context.Context, *GetFake
 }
 func (UnimplementedFakerServiceServer) GenerateFake(context.Context, *GenerateFakeRequest) (*GenerateFakeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GenerateFake not implemented")
+}
+func (UnimplementedFakerServiceServer) GenerateCurseWord(context.Context, *GenerateCurseWordRequest) (*GenerateCurseWordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GenerateCurseWord not implemented")
 }
 func (UnimplementedFakerServiceServer) mustEmbedUnimplementedFakerServiceServer() {}
 func (UnimplementedFakerServiceServer) testEmbeddedByValue()                      {}
@@ -138,11 +154,29 @@ func _FakerService_GenerateFake_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FakerService_GenerateCurseWord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateCurseWordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FakerServiceServer).GenerateCurseWord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FakerService_GenerateCurseWord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FakerServiceServer).GenerateCurseWord(ctx, req.(*GenerateCurseWordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FakerService_ServiceDesc is the grpc.ServiceDesc for FakerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var FakerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "examples.faker.v1.FakerService",
+	ServiceName: "faker.v1.FakerService",
 	HandlerType: (*FakerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -153,7 +187,11 @@ var FakerService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "GenerateFake",
 			Handler:    _FakerService_GenerateFake_Handler,
 		},
+		{
+			MethodName: "GenerateCurseWord",
+			Handler:    _FakerService_GenerateCurseWord_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "examples/faker/v1/faker.proto",
+	Metadata: "faker/v1/faker.proto",
 }

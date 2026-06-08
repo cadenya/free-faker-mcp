@@ -18,6 +18,7 @@ The footprint of tools is very low (not every faker category is loaded into cont
 |------|-------------|
 | `GetFakerOptions` | Lists supported fake data generators. Use `filter` to narrow by name, category, or description. |
 | `GenerateFake` | Generates one fake data value by option name and optional arguments. |
+| `GenerateCurseWord` | Generates one PG-13 curse word from a small built-in list. |
 
 The service builds its catalog from the exported faker-go API at startup. It includes every reflected method that can be called with JSON-friendly scalar arguments and returned as text or JSON. Example faker names: `person.name`, `internet.email`, `company.name`, `address.city`, `lorem.sentence`, `faker.int_between`, `uuid.v4`, `color.hex`.
 
@@ -70,6 +71,12 @@ curl -sS https://free.cadenya.com/faker-mcp \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json, text/event-stream' \
   -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"GenerateFake","arguments":{"name":"internet.email"}}}'
+
+# Generate a PG-13 curse word
+curl -sS https://free.cadenya.com/faker-mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"GenerateCurseWord","arguments":{}}}'
 ```
 
 ## Run Locally
