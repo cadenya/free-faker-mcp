@@ -52,8 +52,11 @@ spec:
               cpu: 100m
               memory: 32Mi
           readinessProbe:
+            # /faker-mcp is the MCP/JSON-RPC endpoint and only accepts POST,
+            # so a GET probe returns 405 and never goes Ready. Use the
+            # gateway's dedicated /health endpoint, which answers GET 200.
             httpGet:
-              path: /faker-mcp
+              path: /health
               port: 8080
             initialDelaySeconds: 3
             periodSeconds: 10
