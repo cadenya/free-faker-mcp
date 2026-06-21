@@ -40,6 +40,9 @@ spec:
             - --require-tool-annotations
             - --path
             - /faker-mcp
+          env:
+            - name: "MCPGODEBUG"
+              value: "disablecontenttypecheck=1"
           ports:
             - name: http
               containerPort: 8080
